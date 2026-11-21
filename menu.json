@@ -394,24 +394,6 @@
           "descripcion": "",
           "precio": 40,
           "media": []
-        },
-        {
-          "id": "plato-mwqzose7kk3",
-          "nombre": "Flyer",
-          "descripcion": "",
-          "precio": null,
-          "media": [
-            {
-              "tipo": "foto",
-              "src": "media/flyer-mwqzpjn23te.webp",
-              "thumb": "media/flyer-mwqzpjn23te-t.webp"
-            },
-            {
-              "tipo": "foto",
-              "src": "media/flyer-mwqzpzia08p.webp",
-              "thumb": "media/flyer-mwqzpzia08p-t.webp"
-            }
-          ]
         }
       ]
     }
