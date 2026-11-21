@@ -4,7 +4,7 @@
   "moneda": "L",
   "telefono": "8830-0100",
   "direccion": "Media cuadra arriba del Parque Central",
-  "horario": "",
+  "horario": "Lun- Dom - 9 AM - 9 PM",
   "instagram": "",
   "whatsapp": "+50488300100",
   "whatsapp_globo": "¿Se te antoja algo? 😋 ¡Escríbenos y pide aquí!",
@@ -394,8 +394,27 @@
           "descripcion": "",
           "precio": 40,
           "media": []
+        },
+        {
+          "id": "plato-mwqzose7kk3",
+          "nombre": "Flyer",
+          "descripcion": "",
+          "precio": null,
+          "media": [
+            {
+              "tipo": "foto",
+              "src": "media/flyer-mwqzpjn23te.webp",
+              "thumb": "media/flyer-mwqzpjn23te-t.webp"
+            },
+            {
+              "tipo": "foto",
+              "src": "media/flyer-mwqzpzia08p.webp",
+              "thumb": "media/flyer-mwqzpzia08p-t.webp"
+            }
+          ]
         }
       ]
     }
-  ]
+  ],
+  "whatsapp_boton": true
 }
