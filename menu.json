@@ -370,7 +370,7 @@
         {
           "id": "agua",
           "nombre": "Agua",
-          "descripcion": "3 por L.20.",
+          "descripcion": "",
           "precio": 20,
           "media": []
         },
