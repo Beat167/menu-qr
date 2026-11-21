@@ -14,7 +14,7 @@
 <script>(function(){try{if(/[?&]navidad=1/.test(location.search)||new Date().getMonth()===11)document.documentElement.classList.add("navidad")}catch(e){}})();</script>
 <style>
 :root{
-  --paper:#ebe7e1;--card:#f6f3ef;--ink:#1e1e1b;--muted:#5f5b55;--green:#2f5f35;--line:#cdc6bb;
+  --paper:#ebe7e1;--card:#f6f3ef;--ink:#1e1e1b;--muted:#5f5b55;--green:#a4161a;--line:#cdc6bb;
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","Noto Serif",Georgia,serif;
   --display:Didot,"Bodoni 72","Bodoni MT","Noto Serif Display",var(--serif);
   --script:"Snell Roundhand","Apple Chancery","Segoe Script","Brush Script MT",cursive;
@@ -193,6 +193,8 @@ body.con-wa footer{padding-bottom:calc(110px + var(--abajo))}
 .mas svg{transition:transform .15s ease}
 .borra .mas svg{transform:rotate(45deg)}
 @media (prefers-reduced-motion:reduce){.wa-btn,.wa-btn::before,.wa-btn::after,.wa-globo,.cart-bar.bump,.toast,.mas.pop{animation:none}}
+.top .brand{display:block;width:112px;height:auto;margin:0 0 6px}
+.top .logo{display:none}
 /* Temporada navideña: activa en diciembre (mes 11). Para probarla antes: añadir ?navidad=1 a la dirección */
 html.navidad{--paper:#f5ece1;--card:#fffaf3;--green:#9b1b22;--line:#d4a545;--muted:#6b4a2b}
 html.navidad body{background:var(--paper) radial-gradient(120% 60% at 15% 0%,rgba(255,220,150,.45),transparent 60%)}
@@ -219,6 +221,7 @@ html.navidad .logo{text-shadow:0 1px 0 rgba(212,165,69,.5)}
     <ellipse cx="108" cy="99" rx="10" ry="12" transform="rotate(-25 108 99)"/>
     <ellipse cx="80" cy="132" rx="9.5" ry="11.5" transform="rotate(-15 80 132)"/>
   </svg>
+  <img class="brand" src="logo-dorado.png" alt="Victoria's Coffee" width="95" height="84">
   <p class="logo" id="logo">Victoria's Coffee</p>
   <h1>MENÚ</h1>
   <p class="sub" id="sub">Brunch &amp; Coffee</p>
