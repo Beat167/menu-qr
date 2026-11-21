@@ -218,6 +218,16 @@ body.cerrado .tip i{background:#b8862e}
 .arrastra::before,.sale::before{color:#ff8f84}
 .toast{background:#f3ece2;color:#0c0b0a}
 .toast button{color:#1f7a3d}
+/* Banner de promoción (se llena con el primer plato destacado de la primera categoría) */
+.promo{position:relative;overflow:hidden;margin:16px 16px 0;padding:18px 20px;border-radius:18px;background:linear-gradient(135deg,#e8473a,#8e1b14);color:#fff;box-shadow:0 10px 26px rgba(232,71,58,.25)}
+.promo[hidden]{display:none}
+.promo::after{content:"";position:absolute;right:-34px;top:-34px;width:130px;height:130px;border-radius:50%;border:14px solid rgba(255,255,255,.08)}
+.promo-tag{display:inline-block;padding:4px 10px;border-radius:999px;background:#f3ece2;color:#8e1b14;font:700 11px var(--ui);letter-spacing:.14em;text-transform:uppercase}
+.promo-n{display:block;margin-top:10px;font:400 27px/1.15 var(--display)}
+.promo-d{margin:6px 0 0;font:15px/1.4 var(--ui);opacity:.92}
+.promo-f{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.promo-p{font:700 22px var(--ui)}
+.promo button{padding:11px 18px;border:0;border-radius:12px;background:#f3ece2;color:#8e1b14;font:700 15px var(--ui);cursor:pointer;touch-action:manipulation}
 /* Temporada navideña: activa en diciembre (mes 11). Para probarla antes: añadir ?navidad=1 a la dirección */
 html.navidad{--green:#e8473a;--line:#d4a545;--muted:#d8c49a}
 html.navidad body{background:var(--paper) radial-gradient(120% 60% at 15% 0%,rgba(212,165,69,.16),transparent 60%)}
@@ -763,6 +773,38 @@ if("serviceWorker"in navigator)addEventListener("load",function(){navigator.serv
     requestAnimationFrame(cuadro);
   }
   requestAnimationFrame(cuadro);
+})();
+</script>
+<script>
+(function(){
+  if(!window.__menu)return;
+  window.__menu.then(function(d){
+    var c=d&&d.categorias&&d.categorias[0];
+    if(!c||!c.platos||!c.platos.length)return;
+    var p=null;
+    for(var i=0;i<c.platos.length;i++)if(c.platos[i].destacado){p=c.platos[i];break}
+    if(!p)p=c.platos[0];
+    var el=document.createElement("section");
+    el.className="promo";
+    el.setAttribute("aria-label","Promoción");
+    var tag=document.createElement("span");tag.className="promo-tag";tag.textContent="Promoción de hoy";
+    var n=document.createElement("b");n.className="promo-n";n.textContent=p.nombre;
+    var de=document.createElement("p");de.className="promo-d";de.textContent=p.descripcion||"";
+    var f=document.createElement("div");f.className="promo-f";
+    var pr=document.createElement("span");pr.className="promo-p";
+    pr.textContent=(d.moneda?d.moneda+" ":"")+(Number.isInteger(p.precio)?p.precio:Number(p.precio).toFixed(2));
+    var b=document.createElement("button");b.type="button";b.textContent="Ver y pedir";
+    b.addEventListener("click",function(){
+      var t=document.querySelector("#menu .item .abrir");
+      if(t)t.click();
+    });
+    f.appendChild(pr);f.appendChild(b);
+    el.appendChild(tag);el.appendChild(n);
+    if(p.descripcion)el.appendChild(de);
+    el.appendChild(f);
+    var tabs=document.getElementById("tabs");
+    tabs.parentNode.insertBefore(el,tabs);
+  }).catch(function(){});
 })();
 </script>
 </body>
