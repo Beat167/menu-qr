@@ -256,7 +256,7 @@ html.navidad .logo{text-shadow:0 1px 0 rgba(212,165,69,.5)}
       <p class="geo">Desliza un plato a la derecha para quitarlo.</p>
       <p class="geo" id="c-sp" hidden>Algunos precios te los confirmamos por WhatsApp.</p>
       <span class="l">¿Cómo lo quieres?</span>
-      <div class="seg" id="c-tipo"><button type="button" data-t="local" aria-pressed="false">🍽️ En el local</button><button type="button" data-t="domicilio" aria-pressed="false">🛵 A domicilio</button></div>
+      <div class="seg" id="c-tipo"><button type="button" data-t="local" aria-pressed="false">🍽️ En el local</button><button type="button" data-t="llevar" aria-pressed="false">🥡 Para llevar</button></div>
       <p class="geo" id="c-geo"></p>
       <div id="c-loc" hidden><label class="l" for="c-mesa">Número de mesa (opcional)</label><input type="text" id="c-mesa" maxlength="10" placeholder="Si no tienes mesa, déjalo vacío"></div>
       <label class="l" for="c-nom" id="c-nom-l">Tu nombre</label>
@@ -335,7 +335,7 @@ function render(){
 
 // Botón flotante de WhatsApp
 function waNum(){return String(data.whatsapp||"").replace(/\D/g,"")}
-// api.whatsapp.com y no wa.me: la redirección de wa.me convierte los emojis en  
+// api.whatsapp.com y no wa.me: la redirección de wa.me convierte los emojis en �
 function waLink(msg){return"https://api.whatsapp.com/send?phone="+waNum()+(msg?"&text="+encodeURIComponent(msg):"")}
 function waBoton(){return!!waNum()&&data.whatsapp_boton===true}
 function whatsapp(){
@@ -662,9 +662,9 @@ function evaluar(){
   if(!hayLocal()){geoTxt="";geoMsg("");return}
   var d=metros(cliente.lat,cliente.lng,+data.local_lat,+data.local_lng);
   var dentro=d<=(parseFloat(data.radio_local_m)||150)+Math.min(cliente.acc,50);
-  if(!tipoManual)ponerTipo(dentro?"local":"domicilio");
+  if(!tipoManual&&dentro)ponerTipo("local");
   geoTxt=dentro?"📍 Estás en "+data.restaurante+", así que lo marcamos para el local."
-    :"📍 Estás a "+(d<1000?Math.round(d/10)*10+" m":Math.round(d/100)/10+" km")+" de "+data.restaurante+", así que lo marcamos a domicilio.";
+    :"📍 Estás a "+(d<1000?Math.round(d/10)*10+" m":Math.round(d/100)/10+" km")+" de "+data.restaurante+". Elige si es para llevar o para el local.";
   geoMsg(geoTxt);
 }
 $("#c-ubic").addEventListener("click",ubicar);
@@ -684,18 +684,14 @@ $("#c-f").addEventListener("submit",function(e){
     return;
   }
   var nom=$("#c-nom").value.trim(),dir=$("#c-dir").value.trim(),mesa=$("#c-mesa").value.trim(),nota=$("#c-nota").value.trim();
-  if(!tipo){geoMsg("Elige si es para el local o a domicilio.",true);$("#c-tipo").scrollIntoView({block:"center",behavior:"smooth"});return}
+  if(!tipo){geoMsg("Elige si es para el local o para llevar.",true);$("#c-tipo").scrollIntoView({block:"center",behavior:"smooth"});return}
   if(!nom&&!conMesa())return falta($("#c-nom"),tipo==="local"?"Escribe tu nombre o tu número de mesa.":"Escribe tu nombre para el pedido.");
-  if(tipo==="domicilio"&&!dir)return falta($("#c-dir"),"Escribe tu dirección o un punto de referencia.");
   var m=["¡Hola "+data.restaurante+"! 👋 Quiero hacer un pedido:",""];
   ls.forEach(function(l){m.push("• "+l.q+"× "+l.p.nombre+(l.n==null?" (precio por confirmar)":" — "+fmt(l.n*l.q)))});
   m.push("","*Total: "+fmt(total(ls))+"*"+($("#c-sp").hidden?"":" + precios por confirmar"),"");
   if(nom)m.push("👤 Nombre: "+nom);
   if(tipo==="local")m.push("🍽️ Para el local"+(mesa?" · Mesa "+mesa:""));
-  else{
-    m.push("🛵 A domicilio","📍 Dirección: "+dir);
-    if(cliente)m.push("🗺️ Ubicación: https://maps.google.com/?q="+cliente.lat.toFixed(6)+","+cliente.lng.toFixed(6));
-  }
+  else m.push("🥡 Para llevar");
   if(nota)m.push("📝 Nota: "+nota);
   if(nom)LS("menu-nombre",nom);
   if(dir)LS("menu-direccion",dir);
