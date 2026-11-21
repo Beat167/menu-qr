@@ -11,6 +11,7 @@
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <script>window.__menu=fetch("menu.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw r.status;return r.json()});</script>
+<script>(function(){try{if(/[?&]navidad=1/.test(location.search)||new Date().getMonth()===11)document.documentElement.classList.add("navidad")}catch(e){}})();</script>
 <style>
 :root{
   --paper:#ebe7e1;--card:#f6f3ef;--ink:#1e1e1b;--muted:#5f5b55;--green:#2f5f35;--line:#cdc6bb;
@@ -192,6 +193,12 @@ body.con-wa footer{padding-bottom:calc(110px + var(--abajo))}
 .mas svg{transition:transform .15s ease}
 .borra .mas svg{transform:rotate(45deg)}
 @media (prefers-reduced-motion:reduce){.wa-btn,.wa-btn::before,.wa-btn::after,.wa-globo,.cart-bar.bump,.toast,.mas.pop{animation:none}}
+/* Temporada navideña: activa en diciembre (mes 11). Para probarla antes: añadir ?navidad=1 a la dirección */
+html.navidad{--paper:#f5ece1;--card:#fffaf3;--green:#9b1b22;--line:#d4a545;--muted:#6b4a2b}
+html.navidad body{background:var(--paper) radial-gradient(120% 60% at 15% 0%,rgba(255,220,150,.45),transparent 60%)}
+html.navidad .rule{height:3px;border:0;opacity:1;background:linear-gradient(90deg,#9b1b22,#d4a545,#9b1b22)}
+html.navidad .top::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:repeating-linear-gradient(90deg,#9b1b22 0 22px,#d4a545 22px 30px,#2f6b3a 30px 52px,#d4a545 52px 60px)}
+html.navidad .logo{text-shadow:0 1px 0 rgba(212,165,69,.5)}
 </style>
 </head>
 <body>
@@ -699,6 +706,41 @@ $("#c-f").addEventListener("submit",function(e){
   avisar("¡Listo! Solo toca enviar en WhatsApp 😋");
 });
 if("serviceWorker"in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement;
+  if(!root.classList.contains("navidad"))return;
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var c=document.createElement("canvas");
+  c.setAttribute("aria-hidden","true");
+  c.style.cssText="position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:60";
+  document.body.appendChild(c);
+  var ctx=c.getContext("2d"),W=0,H=0,flakes=[],MAX=120;
+  function ajustar(){var d=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
+  function copo(x,y,rafaga){return{x:x,y:y,r:1.4+Math.random()*2,v:(rafaga?1.5:0.5)+Math.random()*0.8,dx:rafaga?(Math.random()-.5)*4:(Math.random()-.5)*.4,ph:Math.random()*6.28,vida:rafaga?200:0}}
+  var n=Math.min(25,Math.round(innerWidth/45));
+  for(var i=0;i<n;i++)flakes.push(copo(Math.random()*innerWidth,Math.random()*innerHeight,false));
+  ajustar();
+  addEventListener("resize",ajustar);
+  document.addEventListener("pointerdown",function(e){
+    for(var i=0;i<10;i++)flakes.push(copo(e.clientX,e.clientY,true));
+    if(flakes.length>MAX)flakes.splice(0,flakes.length-MAX);
+  },{passive:true});
+  function cuadro(){
+    ctx.clearRect(0,0,W,H);
+    ctx.shadowColor="rgba(90,70,60,.35)";ctx.shadowBlur=2;ctx.fillStyle="#fff";
+    for(var i=flakes.length-1;i>=0;i--){
+      var f=flakes[i];
+      f.ph+=0.02;f.x+=f.dx+Math.sin(f.ph)*0.35;f.y+=f.v;
+      if(f.vida){f.vida--;if(f.vida<=0||f.y>H+10){flakes.splice(i,1);continue}}
+      else if(f.y>H+10){f.y=-10;f.x=Math.random()*W}
+      ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,6.2832);ctx.fill();
+    }
+    requestAnimationFrame(cuadro);
+  }
+  requestAnimationFrame(cuadro);
 })();
 </script>
 </body>
