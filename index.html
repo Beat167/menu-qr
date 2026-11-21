@@ -194,7 +194,6 @@ body.con-wa footer{padding-bottom:calc(110px + var(--abajo))}
 .borra .mas svg{transform:rotate(45deg)}
 @media (prefers-reduced-motion:reduce){.wa-btn,.wa-btn::before,.wa-btn::after,.wa-globo,.cart-bar.bump,.toast,.mas.pop{animation:none}}
 .top .brand{display:block;width:112px;height:auto;margin:0 0 6px}
-.top .logo{display:none}
 /* Tema oscuro: negro con rojo, como el logo */
 html{background:#0c0b0a;color-scheme:dark}
 :root{--paper:#0c0b0a;--card:#191614;--ink:#f3ece2;--muted:#b9ac9d;--green:#e8473a;--line:#3b3129}
@@ -245,7 +244,7 @@ html.navidad .logo{text-shadow:0 1px 0 rgba(212,165,69,.5)}
     <ellipse cx="108" cy="99" rx="10" ry="12" transform="rotate(-25 108 99)"/>
     <ellipse cx="80" cy="132" rx="9.5" ry="11.5" transform="rotate(-15 80 132)"/>
   </svg>
-  <img class="brand" src="logo-dorado.png" alt="Victoria's Coffee" width="95" height="84">
+  <img class="brand" src="logo-dorado.png" alt="Victoria's Coffee" width="95" height="84" onload="this.nextElementSibling.hidden=true" onerror="this.remove()">
   <p class="logo" id="logo">Victoria's Coffee</p>
   <h1>MENÚ</h1>
   <p class="sub" id="sub">Brunch &amp; Coffee</p>
