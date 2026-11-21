@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#ebe7e1">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0c0b0a">
+<meta name="color-scheme" content="dark">
 <meta name="description" content="Menú de Victoria's Coffee · Brunch & Coffee">
 <title>Victoria's Coffee · Menú</title>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -195,9 +195,33 @@ body.con-wa footer{padding-bottom:calc(110px + var(--abajo))}
 @media (prefers-reduced-motion:reduce){.wa-btn,.wa-btn::before,.wa-btn::after,.wa-globo,.cart-bar.bump,.toast,.mas.pop{animation:none}}
 .top .brand{display:block;width:112px;height:auto;margin:0 0 6px}
 .top .logo{display:none}
+/* Tema oscuro: negro con rojo, como el logo */
+html{background:#0c0b0a;color-scheme:dark}
+:root{--paper:#0c0b0a;--card:#191614;--ink:#f3ece2;--muted:#b9ac9d;--green:#e8473a;--line:#3b3129}
+body{background:var(--paper) radial-gradient(120% 60% at 15% 0%,rgba(232,71,58,.14),transparent 60%)}
+.tabs{background:rgba(12,11,10,.9)}
+.tabs a{color:var(--ink)}
+.tabs a.on{color:#fff}
+.abrir:active{background:rgba(232,71,58,.12)}
+.mas{background:var(--card)}
+.tip{background:rgba(232,71,58,.14);color:#ff8f84}
+body.cerrado .tip{background:#2b2116;color:#f2c46d}
+body.cerrado .tip i{background:#b8862e}
+.th{background:#2a2421}
+.quitar-todo{background:transparent;border-color:#5a2a26;color:#ff8f84}
+.qty{background:var(--card)}
+.f input,.f textarea{background:#221d1a;color:var(--ink)}
+.seg button,.ubic{background:#221d1a;color:var(--ink)}
+.geo.err{color:#ff8f84}
+.x{background:rgba(25,22,20,.92);color:var(--ink)}
+.gal{background:#000}
+.arrastra,.sale{background:linear-gradient(90deg,rgba(232,71,58,.25) var(--dx,0px),transparent var(--dx,0px))}
+.arrastra::before,.sale::before{color:#ff8f84}
+.toast{background:#f3ece2;color:#0c0b0a}
+.toast button{color:#1f7a3d}
 /* Temporada navideña: activa en diciembre (mes 11). Para probarla antes: añadir ?navidad=1 a la dirección */
-html.navidad{--paper:#f5ece1;--card:#fffaf3;--green:#9b1b22;--line:#d4a545;--muted:#6b4a2b}
-html.navidad body{background:var(--paper) radial-gradient(120% 60% at 15% 0%,rgba(255,220,150,.45),transparent 60%)}
+html.navidad{--green:#e8473a;--line:#d4a545;--muted:#d8c49a}
+html.navidad body{background:var(--paper) radial-gradient(120% 60% at 15% 0%,rgba(212,165,69,.16),transparent 60%)}
 html.navidad .rule{height:3px;border:0;opacity:1;background:linear-gradient(90deg,#9b1b22,#d4a545,#9b1b22)}
 html.navidad .top::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:repeating-linear-gradient(90deg,#9b1b22 0 22px,#d4a545 22px 30px,#2f6b3a 30px 52px,#d4a545 52px 60px)}
 html.navidad .logo{text-shadow:0 1px 0 rgba(212,165,69,.5)}
@@ -702,7 +726,7 @@ $("#c-f").addEventListener("submit",function(e){
   pedido={};actualizar();
   $("#c-nota").value="";
   cart.close();
-  avisar("¡Listo! Solo toca enviar en WhatsApp 😋");
+  avisar(data.gracias_compra||"¡Listo! Solo toca enviar en WhatsApp 😋");
 });
 if("serviceWorker"in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});
 })();
