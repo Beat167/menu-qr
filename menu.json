@@ -1,0 +1,400 @@
+{
+  "restaurante": "Victoria's Coffee",
+  "eslogan": "Buen sabor en cada momento",
+  "moneda": "L",
+  "telefono": "8830-0100",
+  "direccion": "Media cuadra arriba del Parque Central",
+  "horario": "",
+  "instagram": "",
+  "whatsapp": "+50488300100",
+  "whatsapp_globo": "¿Se te antoja algo? 😋 ¡Escríbenos y pide aquí!",
+  "whatsapp_mensaje": "¡Hola Victoria's Coffee! 👋 Vi el menú y quisiera pedir algo delicioso 😋",
+  "pedidos_desde": "",
+  "pedidos_hasta": "",
+  "categorias": [
+    {
+      "nombre": "Promociones",
+      "platos": [
+        {
+          "id": "vicky-fushion",
+          "nombre": "Vicky's Fushion",
+          "descripcion": "1 pizza pequeña rectangular pepperoni, 4 alitas, 1 orden de papas, 1 refresco en lata y 1 oz de salsa blanca ranchera.",
+          "precio": 195,
+          "destacado": true,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Alitas",
+      "platos": [
+        {
+          "id": "alitas-barbacoa",
+          "nombre": "Alitas Barbacoa",
+          "descripcion": "6 alitas, 1 orden de papas y 1 oz de salsa ranchera.",
+          "precio": 180,
+          "media": []
+        },
+        {
+          "id": "alitas-picante",
+          "nombre": "Alitas Picante",
+          "descripcion": "6 alitas, 1 orden de papas y 1 oz de salsa ranchera.",
+          "precio": 180,
+          "media": []
+        },
+        {
+          "id": "deditos-de-pollo",
+          "nombre": "Deditos de Pollo",
+          "descripcion": "6 deditos, 1 orden de papas y 1 oz de salsa ranchera.",
+          "precio": 170,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Hamburguesas",
+      "platos": [
+        {
+          "id": "hamburguesa-clasica",
+          "nombre": "Clásica",
+          "descripcion": "Torta de res, lechuga, tomate, queso americano, queso mozzarella y salsa especial. Incluye orden de papas.",
+          "precio": 150,
+          "media": []
+        },
+        {
+          "id": "hamburguesa-especial",
+          "nombre": "Especial",
+          "descripcion": "Torta de res, tocino, lechuga, tomate, queso americano, queso mozzarella y salsa especial. Incluye orden de papas y 1 oz de salsa especial.",
+          "precio": 180,
+          "destacado": true,
+          "media": []
+        },
+        {
+          "id": "hamburguesa-de-la-casa",
+          "nombre": "De la Casa",
+          "descripcion": "Torta de res, tocino, longaniza, huevo, lechuga, tomate, queso americano, queso mozzarella y salsa especial. Incluye orden de papas.",
+          "precio": 210,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Burritos de pollo",
+      "platos": [
+        {
+          "id": "burritos-de-pollo",
+          "nombre": "Burritos de pollo",
+          "descripcion": "2 burritos de pollo y 1 oz de salsa especial.",
+          "precio": 150,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Pizzas",
+      "platos": [
+        {
+          "id": "pizza-pepperoni",
+          "nombre": "Pizza Pepperoni",
+          "descripcion": "8 porciones.",
+          "precio": 170,
+          "media": []
+        },
+        {
+          "id": "pizza-jamon",
+          "nombre": "Pizza Jamón",
+          "descripcion": "8 porciones.",
+          "precio": 170,
+          "media": []
+        },
+        {
+          "id": "pizza-mixta",
+          "nombre": "Pizza Mixta",
+          "descripcion": "Pepperoni y jamón. 8 porciones.",
+          "precio": 190,
+          "media": []
+        },
+        {
+          "id": "pizza-suprema",
+          "nombre": "Pizza Suprema",
+          "descripcion": "Topping italiano, pepperoni, jamón, chile dulce y cebolla. 8 porciones.",
+          "precio": 220,
+          "media": []
+        },
+        {
+          "id": "pizza-carnivora",
+          "nombre": "Pizza Carnívora",
+          "descripcion": "Topping italiano, pepperoni, jamón, tocino y chorizo picante. 8 porciones.",
+          "precio": 240,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Snacks",
+      "platos": [
+        {
+          "id": "panini-jamon",
+          "nombre": "Panini Jamón",
+          "descripcion": "",
+          "precio": 80,
+          "media": []
+        },
+        {
+          "id": "panini-pollo",
+          "nombre": "Panini Pollo",
+          "descripcion": "1 orden de papas, 1 oz de salsa ranchera y 1 oz de salsa dulce.",
+          "precio": 140,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Waffles",
+      "platos": [
+        {
+          "id": "waffle-con-miel",
+          "nombre": "1 Waffle con miel",
+          "descripcion": "",
+          "precio": 80,
+          "media": []
+        },
+        {
+          "id": "waffles-con-chocolate",
+          "nombre": "2 Waffles con chocolate",
+          "descripcion": "",
+          "precio": 120,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Panqueques",
+      "platos": [
+        {
+          "id": "panqueques-con-miel",
+          "nombre": "2 Panqueques con miel",
+          "descripcion": "",
+          "precio": 50,
+          "media": []
+        },
+        {
+          "id": "panqueques-con-chocolate",
+          "nombre": "2 Panqueques con chocolate",
+          "descripcion": "",
+          "precio": 80,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Bebidas calientes",
+      "platos": [
+        {
+          "id": "americano-8oz",
+          "nombre": "Americano 8 oz",
+          "descripcion": "",
+          "precio": 45,
+          "media": []
+        },
+        {
+          "id": "americano-12oz",
+          "nombre": "Americano 12 oz",
+          "descripcion": "",
+          "precio": 55,
+          "media": []
+        },
+        {
+          "id": "capuchino-8oz",
+          "nombre": "Capuchino 8 oz",
+          "descripcion": "",
+          "precio": 50,
+          "media": []
+        },
+        {
+          "id": "capuchino-12oz",
+          "nombre": "Capuchino 12 oz",
+          "descripcion": "",
+          "precio": 60,
+          "media": []
+        },
+        {
+          "id": "latte-8oz",
+          "nombre": "Latte 8 oz",
+          "descripcion": "",
+          "precio": 50,
+          "media": []
+        },
+        {
+          "id": "latte-12oz",
+          "nombre": "Latte 12 oz",
+          "descripcion": "",
+          "precio": 60,
+          "media": []
+        },
+        {
+          "id": "caramel-latte-8oz",
+          "nombre": "Caramel Latte 8 oz",
+          "descripcion": "",
+          "precio": 55,
+          "media": []
+        },
+        {
+          "id": "caramel-latte-12oz",
+          "nombre": "Caramel Latte 12 oz",
+          "descripcion": "",
+          "precio": 65,
+          "media": []
+        },
+        {
+          "id": "chai-latte-8oz",
+          "nombre": "Chai Latte 8 oz",
+          "descripcion": "",
+          "precio": 75,
+          "media": []
+        },
+        {
+          "id": "chai-latte-12oz",
+          "nombre": "Chai Latte 12 oz",
+          "descripcion": "",
+          "precio": 85,
+          "media": []
+        },
+        {
+          "id": "chocolate-8oz",
+          "nombre": "Chocolate 8 oz",
+          "descripcion": "",
+          "precio": 50,
+          "media": []
+        },
+        {
+          "id": "chocolate-12oz",
+          "nombre": "Chocolate 12 oz",
+          "descripcion": "",
+          "precio": 60,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Bebidas frías",
+      "platos": [
+        {
+          "id": "iced-latte",
+          "nombre": "Iced Latte",
+          "descripcion": "",
+          "precio": 65,
+          "media": []
+        },
+        {
+          "id": "iced-caramel-latte",
+          "nombre": "Iced Caramel Latte",
+          "descripcion": "",
+          "precio": 80,
+          "media": []
+        },
+        {
+          "id": "iced-moca",
+          "nombre": "Iced Moca",
+          "descripcion": "",
+          "precio": 80,
+          "media": []
+        },
+        {
+          "id": "iced-chai-latte",
+          "nombre": "Iced Chai Latte",
+          "descripcion": "",
+          "precio": 80,
+          "media": []
+        },
+        {
+          "id": "iced-chocolate",
+          "nombre": "Iced Chocolate",
+          "descripcion": "",
+          "precio": 80,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Granitas",
+      "platos": [
+        {
+          "id": "granita-coffee",
+          "nombre": "Coffee",
+          "descripcion": "",
+          "precio": 60,
+          "media": []
+        },
+        {
+          "id": "granita-coffee-oreo",
+          "nombre": "Coffee Oreo",
+          "descripcion": "",
+          "precio": 70,
+          "media": []
+        },
+        {
+          "id": "granita-caramel",
+          "nombre": "Caramel",
+          "descripcion": "",
+          "precio": 75,
+          "media": []
+        },
+        {
+          "id": "granita-chai",
+          "nombre": "Chai",
+          "descripcion": "",
+          "precio": 80,
+          "media": []
+        },
+        {
+          "id": "granita-frutas-naturales",
+          "nombre": "Frutas Naturales",
+          "descripcion": "",
+          "precio": 40,
+          "media": []
+        }
+      ]
+    },
+    {
+      "nombre": "Refrescos",
+      "platos": [
+        {
+          "id": "coca-cola-lata",
+          "nombre": "Coca Cola Lata",
+          "descripcion": "",
+          "precio": 25,
+          "media": []
+        },
+        {
+          "id": "agua",
+          "nombre": "Agua",
+          "descripcion": "3 por L.20.",
+          "precio": 20,
+          "media": []
+        },
+        {
+          "id": "coca-cola-1-5-litro",
+          "nombre": "Coca Cola 1.5 L",
+          "descripcion": "",
+          "precio": 50,
+          "media": []
+        },
+        {
+          "id": "pepsi-lata",
+          "nombre": "Pepsi Lata",
+          "descripcion": "",
+          "precio": 25,
+          "media": []
+        },
+        {
+          "id": "pepsi-1-litro",
+          "nombre": "Pepsi 1 litro",
+          "descripcion": "",
+          "precio": 40,
+          "media": []
+        }
+      ]
+    }
+  ]
+}
